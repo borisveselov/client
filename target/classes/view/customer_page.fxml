@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+            prefWidth="899.0" styleClass="anchorbackgr" stylesheets="@../style/main.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.courseproject.client.controller.CustomerMainController">
+    <children>
+        <AnchorPane prefHeight="620.0" prefWidth="171.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="216.0" prefHeight="123.0" prefWidth="171.0" spacing="9.0"
+                      style="-fx-background-color: #214096;">
+                    <children>
+                        <Button fx:id="makeOrderButn" mnemonicParsing="false" onAction="#makeOrder" prefHeight="50.0"
+                                prefWidth="170.0" style="-fx-background-color: #ffffff;" styleClass="btn"
+                                stylesheets="@../style/main.css" text="Сделать заказ" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="statisticsButn" mnemonicParsing="false" onAction="#statisticsAction"
+                                prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #ffffff;"
+                                text="Моя статистика" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

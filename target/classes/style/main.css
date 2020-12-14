@@ -1,0 +1,13 @@
+.anchor {
+    -fx-background-image: url('../img/background.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.anchorbackgr {
+    -fx-background-image: url('../img/bckground.jpg');
+    -fx-opacity: 0.9;
+}
+
+.btn:focused {
+    -fx-background-color: #6a6286;
+}

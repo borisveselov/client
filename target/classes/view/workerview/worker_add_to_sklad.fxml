@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+            prefWidth="899.0" styleClass="anchorbackgr" stylesheets="@../../style/main.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.courseproject.client.controller.workerPageController.WorkerAddToSkladPageController">
+    <children>
+        <AnchorPane prefHeight="620.0" prefWidth="171.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="218.0" prefHeight="210.0" prefWidth="171.0" spacing="9.0"
+                      style="-fx-background-color: #214096;">
+                    <children>
+                        <JFXButton fx:id="orderButn" onAction="#orderAction" prefHeight="55.0" prefWidth="170.0"
+                                   ripplerFill="#e2e2e2" style="-fx-background-color: #ffffff;" text="Реализация заказа"
+                                   textAlignment="JUSTIFY" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#refreshRequest" text="Обновить"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </JFXButton>
+                        <Button fx:id="addProductBurn" mnemonicParsing="false" onAction="#addToSkaldAction"
+                                prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #ffffff;"
+                                styleClass="btn" stylesheets="@../../style/main.css" text="Прием товаров"
+                                textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+                <AnchorPane layoutX="-2.0" layoutY="187.0" prefHeight="22.0" prefWidth="174.0">
+                    <children>
+                        <ImageView fx:id="img" fitHeight="31.0" fitWidth="37.0" layoutX="142.0" layoutY="16.0"
+                                   pickOnBounds="true" preserveRatio="true" visible="false">
+                            <image>
+                                <Image url="@../../img/bell1.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <TabPane fx:id="tabPane" layoutX="198.0" layoutY="98.0" prefHeight="470.0" prefWidth="474.0"
+                 tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Газированные напитки">
+                    <content>
+                        <TableView fx:id="sprinkleTable" onMouseClicked="#selectGasDrink" prefHeight="417.0"
+                                   prefWidth="475.0">
+                            <columns>
+                                <TableColumn prefWidth="352.80003356933594" text="Наименование"/>
+                                <TableColumn minWidth="2.4000244140625" prefWidth="124.7999267578125" text="Цена"/>
+                                <TableColumn minWidth="6.103515625E-5" prefWidth="6.103515625E-5" text="id"
+                                             visible="false"/>
+                            </columns>
+                        </TableView>
+                    </content>
+                </Tab>
+                <Tab text="Негазированные напитки">
+                    <content>
+                        <TableView fx:id="mineralTable" onMouseClicked="#selectMinaralDrink" prefHeight="200.0"
+                                   prefWidth="200.0">
+                            <columns>
+                                <TableColumn prefWidth="342.3999481201172" text="Наименование"/>
+                                <TableColumn prefWidth="135.20001220703125" text="Цена"/>
+                                <TableColumn minWidth="0.0" prefWidth="0.0" text="id" visible="false"/>
+                            </columns>
+                        </TableView>
+                    </content>
+                </Tab>
+                <Tab text="Сок">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="juiceTable" onMouseClicked="#selectJuiceDrink" prefHeight="500.0"
+                                           prefWidth="475.0">
+                                    <columns>
+                                        <TableColumn prefWidth="358.40000915527344" text="Наименование"/>
+                                        <TableColumn prefWidth="116.79998779296875" text="Цена"/>
+                                        <TableColumn minWidth="0.0" prefWidth="0.0" text="id" visible="false"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Label fx:id="amountLabel" layoutX="708.0" layoutY="125.0" text="В количестве">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <Button fx:id="addButn" layoutX="711.0" layoutY="151.0" mnemonicParsing="false" onAction="#addToBasket"
+                prefHeight="26.0" prefWidth="53.0" text="OK"/>
+        <Spinner fx:id="countSpin" layoutX="786.0" layoutY="152.0" prefHeight="26.0" prefWidth="76.0"/>
+        <Button layoutX="712.0" layoutY="210.0" mnemonicParsing="false" onAction="#moveToSklad" prefHeight="26.0"
+                prefWidth="159.0" text="Отправить на склад"/>
+    </children>
+</AnchorPane>

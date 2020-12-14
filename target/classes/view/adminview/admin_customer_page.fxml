@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0"
+            prefWidth="996.0" styleClass="anchorbackgr" stylesheets="@../../style/main.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.courseproject.client.controller.adminPageController.AdminCustomerPageController">
+    <children>
+        <AnchorPane prefHeight="638.0" prefWidth="174.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="208.0" prefHeight="234.0" prefWidth="171.0" spacing="9.0"
+                      style="-fx-background-color: #214096;">
+                    <children>
+                        <JFXButton fx:id="orederBtn" onMouseClicked="#orderAction" prefHeight="55.0" prefWidth="170.0"
+                                   ripplerFill="#e2e2e2" style="-fx-background-color: #ffffff;" text="Заказы"
+                                   textAlignment="JUSTIFY" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#refreshRequest" text="Обновить"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </JFXButton>
+                        <Button fx:id="stafButn" mnemonicParsing="false" onAction="#staffAction" prefHeight="50.0"
+                                prefWidth="170.0" style="-fx-background-color: #ffffff;" styleClass="btn"
+                                stylesheets="@../../style/main.css" text="Персонал" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="customerButn" mnemonicParsing="false" onAction="#customerAction"
+                                prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #ffffff;"
+                                text="Заказчики" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="statisticsButn" mnemonicParsing="false" onAction="#statisticsAction"
+                                prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #ffffff;"
+                                text="Статистика" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+                <AnchorPane layoutX="-4.0" layoutY="181.0" prefHeight="42.0" prefWidth="174.0" visible="false">
+                    <children>
+                        <ImageView fx:id="img" fitHeight="31.0" fitWidth="37.0" layoutX="142.0" layoutY="13.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/bell1.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <TabPane fx:id="tabPane" layoutX="171.0" layoutY="-2.0" prefHeight="622.0" prefWidth="828.0"
+                 tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Заказчики">
+                    <content>
+                        <AnchorPane onMouseClicked="#clearFields" prefHeight="578.0" prefWidth="810.0">
+                            <children>
+                                <TableView fx:id="customerTable" layoutX="1.0" layoutY="-2.0"
+                                           onMouseClicked="#fillFields" prefHeight="334.0" prefWidth="828.0">
+                                    <columns>
+                                        <TableColumn editable="false" prefWidth="187.99998474121094"
+                                                     text="Название орагнизации"/>
+                                        <TableColumn editable="false" prefWidth="175.20001220703125"
+                                                     text="Представитель"/>
+                                        <TableColumn prefWidth="111.20001220703125" text="Статус"/>
+                                        <TableColumn editable="false" minWidth="1.60003662109375"
+                                                     prefWidth="97.59991455078125" text="email"/>
+                                        <TableColumn editable="false" prefWidth="256.800048828125" text="Адрес"/>
+                                        <TableColumn prefWidth="75.0" text="id"/>
+                                        <TableColumn prefWidth="75.0" text="iduser"/>
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="nameField" layoutX="25.0" layoutY="415.0" prefHeight="26.0"
+                                           prefWidth="150.0"/>
+                                <TextField fx:id="representativeField" layoutX="25.0" layoutY="460.0" prefHeight="26.0"
+                                           prefWidth="150.0"/>
+                                <TextField fx:id="emailField" layoutX="26.0" layoutY="508.0" promptText="\@gmail.com"/>
+                                <TextField fx:id="countryField" layoutX="255.0" layoutY="402.0"/>
+                                <TextField fx:id="townField" layoutX="254.0" layoutY="450.0" prefHeight="27.0"
+                                           prefWidth="149.0"/>
+                                <TextField fx:id="addressField" layoutX="253.0" layoutY="499.0" prefHeight="26.0"
+                                           prefWidth="150.0"/>
+                                <Button layoutX="535.0" layoutY="414.0" mnemonicParsing="false" onAction="#addToBD"
+                                        prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #214096;"
+                                        text="Добавить" textFill="#fff8ec">
+                                    <font>
+                                        <Font name="System Italic" size="14.0"/>
+                                    </font>
+                                </Button>
+                                <Button layoutX="535.0" layoutY="464.0" mnemonicParsing="false" onAction="#changeInBD"
+                                        prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #214096;"
+                                        text="Изменить" textFill="#fff8ec">
+                                    <font>
+                                        <Font name="System Italic" size="14.0"/>
+                                    </font>
+                                </Button>
+                                <ComboBox fx:id="statusBox" layoutX="25.0" layoutY="366.0" prefWidth="150.0"/>
+                                <Label fx:id="statusLabel" layoutX="26.0" layoutY="347.0" prefHeight="18.0"
+                                       prefWidth="67.0" text="Статус">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="surnameLabel" layoutX="26.0" layoutY="399.0" prefHeight="19.0"
+                                       prefWidth="83.0" text="Название">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="nameLabel" layoutX="25.0" layoutY="444.0" prefHeight="19.0"
+                                       prefWidth="132.0" text="ФИО представитель">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="phoneLabel" layoutX="25.0" layoutY="491.0" text="email">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="locationLabel" layoutX="253.0" layoutY="357.0" text="Адрес проживания:">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="countryLabel" layoutX="253.0" layoutY="383.0" text="Страна">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="towmLabel" layoutX="255.0" layoutY="432.0" text="Город">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="addressLabel" layoutX="255.0" layoutY="477.0" text="Адрес">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

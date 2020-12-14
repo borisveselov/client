@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="996.0" styleClass="anchorbackgr" stylesheets="@../../style/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.courseproject.client.controller.adminPageController.AdminStaffPageController">
+    <children>
+        <AnchorPane layoutX="-4.0" prefHeight="638.0" prefWidth="176.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="220.0" prefHeight="234.0" prefWidth="171.0" spacing="9.0" style="-fx-background-color: #214096;">
+                    <children>
+                        <JFXButton onAction="#orderAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#e2e2e2" style="-fx-background-color: #ffffff;" text="Заказы" textAlignment="JUSTIFY" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#refreshRequest" text="Обновить" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </JFXButton>
+                        <Button fx:id="stafButn" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #ffffff;" styleClass="btn" stylesheets="@../../style/main.css" text="Персонал" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="customerButn" mnemonicParsing="false" onAction="#customerAction" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #ffffff;" text="Заказчики" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="statisticsButn" mnemonicParsing="false" onAction="#statisticsAction" prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #ffffff;" text="Статистика" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <TabPane fx:id="tabPane" layoutX="171.0" layoutY="-2.0" prefHeight="621.0" prefWidth="825.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Сотрудники">
+                    <content>
+                        <AnchorPane onMouseClicked="#clearFields" prefHeight="598.0" prefWidth="828.0">
+                            <children>
+                                <TableView fx:id="workerTable" layoutX="1.0" onMouseClicked="#fillFields" prefHeight="344.0" prefWidth="826.0">
+                                    <columns>
+                                        <TableColumn editable="false" prefWidth="141.6000213623047" text="Фамилия" />
+                                        <TableColumn editable="false" prefWidth="106.39996337890625" text="Имя" />
+                                        <TableColumn prefWidth="86.39990234375" text="Статус" />
+                                        <TableColumn editable="false" prefWidth="67.20001220703125" text="Стаж" />
+                                        <TableColumn editable="false" prefWidth="132.800048828125" text="Номер" />
+                                        <TableColumn editable="false" prefWidth="307.20001220703125" text="Адрес" />
+                                        <TableColumn prefWidth="35.20001220703125" text="id" visible="false" />
+                                        <TableColumn prefWidth="75.0" text="iduser" visible="false" />
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="surnameField" layoutX="25.0" layoutY="415.0" prefHeight="26.0" prefWidth="150.0" />
+                                <TextField fx:id="nameField" layoutX="25.0" layoutY="460.0" prefHeight="26.0" prefWidth="150.0" />
+                                <Spinner fx:id="senioriteSpinner" editable="true" layoutX="24.0" layoutY="512.0" prefHeight="26.0" prefWidth="70.0" />
+                                <TextField fx:id="phoneField" layoutX="247.0" layoutY="374.0" promptText="+375 (XX) XXX-XX-XX" />
+                                <TextField fx:id="countryField" layoutX="254.0" layoutY="444.0" />
+                                <TextField fx:id="townField" layoutX="253.0" layoutY="487.0" prefHeight="27.0" prefWidth="149.0" />
+                                <TextField fx:id="addressField" layoutX="253.0" layoutY="540.0" prefHeight="26.0" prefWidth="229.0" />
+                                <Button layoutX="535.0" layoutY="414.0" mnemonicParsing="false" onAction="#addToBD" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #214096;" text="Добавить" textFill="#fff8ec">
+                                    <font>
+                                        <Font name="System Italic" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button layoutX="535.0" layoutY="464.0" mnemonicParsing="false" onAction="#changeInBD" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #214096;" text="Изменить" textFill="#fff8ec">
+                                    <font>
+                                        <Font name="System Italic" size="14.0" />
+                                    </font>
+                                </Button>
+                                <ComboBox fx:id="statusBox" layoutX="25.0" layoutY="366.0" prefWidth="150.0" />
+                                <Label fx:id="statusLabel" layoutX="26.0" layoutY="347.0" prefHeight="18.0" prefWidth="67.0" text="Статус">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="surnameLabel" layoutX="26.0" layoutY="399.0" prefHeight="19.0" prefWidth="83.0" text="Фамилия">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="nameLabel" layoutX="25.0" layoutY="444.0" prefHeight="18.0" prefWidth="47.0" text="Имя">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="seniorLabel" layoutX="26.0" layoutY="494.0" prefHeight="19.0" prefWidth="85.0" text="Стаж работы">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="phoneLabel" layoutX="248.0" layoutY="356.0" text="Контактный телефон">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="locationLabel" layoutX="252.0" layoutY="405.0" text="Адрес проживания:">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="countryLabel" layoutX="252.0" layoutY="425.0" text="Страна">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="towmLabel" layoutX="254.0" layoutY="469.0" text="Город">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="addressLabel" layoutX="255.0" layoutY="518.0" text="Адрес">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <AnchorPane layoutX="6.0" layoutY="191.0" prefHeight="42.0" prefWidth="174.0">
+            <children>
+                <ImageView fx:id="img" fitHeight="31.0" fitWidth="37.0" layoutX="129.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../img/bell1.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

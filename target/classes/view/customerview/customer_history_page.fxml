@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+            prefWidth="899.0" styleClass="anchorbackgr" stylesheets="@../../style/main.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.courseproject.client.controller.customerPageController.CHistoryPageController">
+    <children>
+        <AnchorPane prefHeight="620.0" prefWidth="171.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="216.0" prefHeight="123.0" prefWidth="171.0" spacing="9.0"
+                      style="-fx-background-color: #214096;">
+                    <children>
+                        <Button fx:id="makeOrderButn" mnemonicParsing="false" onAction="#makeOrder" prefHeight="50.0"
+                                prefWidth="170.0" style="-fx-background-color: #ffffff;" styleClass="btn"
+                                stylesheets="@../../style/main.css" text="Сделать заказ" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="statisticsButn" mnemonicParsing="false" onAction="#statisticsAction"
+                                prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #ffffff;"
+                                text="Мои заказы" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <TextArea fx:id="processingOrdersArea" layoutX="196.0" layoutY="60.0" prefHeight="94.0" prefWidth="618.0"/>
+        <Label layoutX="196.0" layoutY="43.0" prefHeight="18.0" prefWidth="352.0" text="Обрабатываемые заказы"/>
+        <Label layoutX="196.0" layoutY="183.0" prefHeight="18.0" prefWidth="189.0" text="Реализованные заказы"/>
+        <TextArea fx:id="adoptedOrdersArea" layoutX="196.0" layoutY="201.0" prefHeight="140.0" prefWidth="628.0"/>
+        <TextArea fx:id="rejectedOrdersArea" layoutX="196.0" layoutY="384.0" prefHeight="152.0" prefWidth="628.0"/>
+        <Label layoutX="196.0" layoutY="367.0" prefHeight="18.0" prefWidth="230.0" text="Отклоненные заказы"/>
+    </children>
+</AnchorPane>

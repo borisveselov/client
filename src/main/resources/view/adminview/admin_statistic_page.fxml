@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+            prefWidth="899.0" styleClass="anchorbackgr" stylesheets="@../../style/main.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.courseproject.client.controller.adminPageController.AdminStatisticsPageController">
+    <children>
+        <AnchorPane prefHeight="620.0" prefWidth="171.0" style="-fx-background-color: #214096;">
+            <children>
+                <VBox layoutY="218.0" prefHeight="210.0" prefWidth="171.0" spacing="9.0"
+                      style="-fx-background-color: #214096;">
+                    <children>
+                        <JFXButton fx:id="orderButn" onAction="#orderAction" prefHeight="55.0" prefWidth="170.0"
+                                   ripplerFill="#e2e2e2" style="-fx-background-color: #ffffff;" text="Заказы"
+                                   textAlignment="JUSTIFY" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#refreshRequest" text="Обновить"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </JFXButton>
+                        <Button fx:id="stafButn" mnemonicParsing="false" onAction="#staffAction" prefHeight="50.0"
+                                prefWidth="170.0" style="-fx-background-color: #ffffff;" styleClass="btn"
+                                stylesheets="@../../style/main.css" text="Персонал" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="customerButn" mnemonicParsing="false" onAction="#customerAction"
+                                prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #ffffff;"
+                                text="Заказчики" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="statisticsButn" mnemonicParsing="false" onAction="#statisticsAction"
+                                prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #ffffff;"
+                                text="Статистика" textFill="#f0620a">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <BarChart fx:id="barChar" layoutX="174.0" layoutY="138.0" prefHeight="478.0" prefWidth="723.0" visible="false">
+            <xAxis>
+                <CategoryAxis label="Клиент" side="BOTTOM" visible="false" fx:id="x"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="y" label="Цена" prefHeight="360.0" prefWidth="23.0" side="LEFT"/>
+            </yAxis>
+        </BarChart>
+        <Label layoutX="190.0" layoutY="23.0" prefHeight="20.0" prefWidth="247.0"
+               text="Выберите начало отчетного периода">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label layoutX="523.0" layoutY="23.0" prefHeight="18.0" prefWidth="330.0"
+               text="Выберите конец отчетного периода">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <DatePicker fx:id="beginDate" layoutX="190.0" layoutY="49.0" prefHeight="20.0" prefWidth="200.0"
+                    promptText="Начало"/>
+        <DatePicker fx:id="endDate" layoutX="523.0" layoutY="49.0" prefHeight="26.0" prefWidth="200.0"
+                    promptText="Конец"/>
+        <RadioButton fx:id="sumCostRB" layoutX="190.0" layoutY="112.0" mnemonicParsing="false" onAction="#sumCostAction"
+                     prefHeight="20.0" prefWidth="289.0" text="Топ популярных товаров">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="topProdRB" layoutX="523.0" layoutY="112.0" mnemonicParsing="false" onAction="#popularAction"
+                     text="Топ заказчиков">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </RadioButton>
+        <PieChart fx:id="pieChart" layoutX="156.0" layoutY="126.0" prefHeight="503.0" prefWidth="748.0"
+                  title="Топ 5 заказываемых товаров" visible="false"/>
+        <AnchorPane layoutX="93.0" layoutY="145.0" prefHeight="22.0" prefWidth="174.0">
+            <children>
+                <ImageView fx:id="img" fitHeight="31.0" fitWidth="37.0" layoutX="142.0" layoutY="16.0"
+                           pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../img/bell1.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
